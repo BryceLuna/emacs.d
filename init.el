@@ -143,7 +143,8 @@
 (use-package org
   :config
   (setq org-agenda-window-setup 'current-window)
-  '(org-startup-indented t)
+  (setq org-hide-emphasis-markers t)
+  (setq org-startup-indented t)
   '(org-list-demote-modify-bullet (quote (("-" . "+") ("1." . "-"))))  
   :bind (("C-c a" . org-agenda)
 	 ("C-c c" . org-capture)))
