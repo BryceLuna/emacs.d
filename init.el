@@ -145,7 +145,34 @@
   (setq org-agenda-window-setup 'current-window)
   (setq org-hide-emphasis-markers t)
   (setq org-startup-indented t)
-  '(org-list-demote-modify-bullet (quote (("-" . "+") ("1." . "-"))))  
+  (setq org-list-demote-modify-bullet (quote (("-" . "+") ("1." . "-"))))
+  (setq org-agenda-files
+   (quote
+    ("~/Dropbox/Courses/" "~/Documents/Notes/" "~/Projects/" "~/Dropbox/Books/")))
+  (setq org-capture-templates
+   (quote
+    (("e" "Template to capture emacs items")
+     ("et" "capture emacs TODO entries" entry
+      (file+headline "~/Documents/Notes/Emacs.org" "Todo List Items")
+      (file "~/.emacs.d/org-templates/emacs.orgcaptmpl"))
+     ("em" "capture misc emacs items" item
+      (id "emacs-capture")
+      "")
+     ("l" "Template to capture linux notes" item
+      (id "linux-capture")
+      "")
+     ("a" "capture notes for an article " entry
+      (file "~/Documents/Notes/Mind_Hacks.org")
+      (file "~/.emacs.d/org-templates/notes.orgcaptmpl"))
+     ("m" "Template to capture a math note" item
+      (id "math-notes")
+      "")
+     ("d" "Template to capture data science notes" item
+      (file "~/Documents/Notes/Data_Science_Capture.org")
+      "")
+     ("c" "Template to capture course todo items" entry
+      (file "~/Dropbox/Courses/TODO.org")
+      (file "~/.emacs.d/org-templates/courses_TODO.orgcaptmpl")))))
   :bind (("C-c a" . org-agenda)
 	 ("C-c c" . org-capture)))
 	 
