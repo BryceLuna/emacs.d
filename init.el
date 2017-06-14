@@ -28,6 +28,9 @@
 ; Turning off annoying bell sound
 (setq ring-bell-function 'ignore)
 
+; Set Theme
+(load-theme 'blackboard t)
+
 ; Create a 80-character line marker
 ; With a work-around so that fill-column-indicator works with company mode
 ; https://emacs.stackexchange.com/questions/147/how-can-i-get-a-ruler-at-column-80
