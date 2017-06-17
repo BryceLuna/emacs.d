@@ -31,14 +31,20 @@
 ; Set Theme
 (load-theme 'blackboard t)
 
-; Create a 80-character line marker
-; With a work-around so that fill-column-indicator works with company mode
-; https://emacs.stackexchange.com/questions/147/how-can-i-get-a-ruler-at-column-80
-(use-package fill-column-indicator
-  :ensure t
-  :config
-  (setq fci-rule-column 80)
-  (add-hook 'prog-mode-hook 'fci-mode))
+; Set up pairing
+ (defun electric-pair ()
+      "If at end of line, insert character pair without surrounding spaces.
+    Otherwise, just insert the typed character."
+      (interactive)
+      (if (eolp) (let (parens-require-spaces) (insert-pair)) (self-insert-command 1)))
+
+(add-hook 'python-mode-hook
+              (lambda ()
+                (define-key python-mode-map "\"" 'electric-pair)
+                (define-key python-mode-map "\'" 'electric-pair)
+                (define-key python-mode-map "(" 'electric-pair)
+                (define-key python-mode-map "[" 'electric-pair)
+                (define-key python-mode-map "{" 'electric-pair)))
 
 (defvar-local company-fci-mode-on-p nil)
 
