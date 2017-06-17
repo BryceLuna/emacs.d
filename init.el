@@ -87,7 +87,7 @@
   ;; https://emacs.stackexchange.com/questions/24453/weird-shell-output-when-using-ipython-5  (setq python-shell-interpreter "ipython")
   ;; (setq python-shell-interpreter-args "--simple-prompt -i")
   (setq python-shell-interpreter "/home/bryce/anaconda2/bin/ipython"
-      python-shell-interpreter-args "--simple-prompt")
+      python-shell-interpreter-args '("--simple-prompt" "--profile=dev"))
   ;; Enable pyvenv, which manages Python virtual environments
   (pyvenv-mode 1)
   ;; Tell Python debugger (pdb) to use the current virtual environment
