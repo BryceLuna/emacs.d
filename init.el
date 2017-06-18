@@ -87,7 +87,7 @@
   ;; https://emacs.stackexchange.com/questions/24453/weird-shell-output-when-using-ipython-5  (setq python-shell-interpreter "ipython")
   ;; (setq python-shell-interpreter-args "--simple-prompt -i")
   (setq python-shell-interpreter "/home/bryce/anaconda2/bin/ipython"
-      python-shell-interpreter-args '("--simple-prompt" "--profile=dev"))
+      python-shell-interpreter-args "--simple-prompt --profile=dev")
   ;; Enable pyvenv, which manages Python virtual environments
   (pyvenv-mode 1)
   ;; Tell Python debugger (pdb) to use the current virtual environment
@@ -202,7 +202,9 @@
   (define-key company-mode-map (kbd "TAB") 'company-complete)
   (define-key company-active-map (kbd "TAB") 'company-complete-common)
   ;; Set up M-h to see the documentation for items on the autocomplete menu
-  (define-key company-active-map (kbd "M-h") 'company-show-doc-buffer))
+  (define-key company-active-map (kbd "M-h") 'company-show-doc-buffer)
+  (define-key company-active-map (kbd "C-n") 'company-select-next-or-abort)
+  (define-key company-active-map (kbd "C-p") 'company-select-previous-or-abort))
 
 
 ; == Yas-Snippet ==
